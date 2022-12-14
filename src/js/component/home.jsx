@@ -17,9 +17,9 @@ const Home = () => {
 					onChange={(e)=> setInputValue(e.target.value)}
 					value= {inputValue}
 					onKeyUp={(e) => {
-						if (e.key== "Enter"){
-							setTodos(todos.concat([inputValue]));
-						setInputValue("");
+						if (e.key== "Enter" && e.target.value.trim() != ""){
+							setTodos(todos.concat([e.target.value]));
+							setInputValue("");
 						}}}
 					placeholder="What do you need to do?">
 
