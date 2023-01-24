@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 //add into array --> concat
 //delete from an array --> filter
@@ -20,7 +20,9 @@ const Home = () => {
 						if (e.key== "Enter" && e.target.value.trim() != ""){
 							setTodos(todos.concat([e.target.value]));
 							setInputValue("");
-						}}}
+						} 
+						
+					}}
 					placeholder="What do you need to do?">
 
 				</input>
@@ -43,7 +45,7 @@ const Home = () => {
 				
 				</ul>
 
-			<div>23 tasks</div>
+			<div>{todos.length > 0 ? `${todos.length} todos` : 'No todos' }</div>
 		</div>
 	);
 };
