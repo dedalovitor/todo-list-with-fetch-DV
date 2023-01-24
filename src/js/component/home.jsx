@@ -6,8 +6,18 @@ import React, { useEffect, useState } from "react";
 
 //create your first component
 const Home = () => {
-	const [inputValue, setInputValue] = useState("");
 	const [todos, setTodos] = useState([]);
+
+useEffect(()=>{
+	getTodos();
+}, []);
+
+	const getTodos = async () => {
+		const response = await fetch("http://assets.breatheco.de/apis/fake/todos/user/dedalovitor");
+		const data = await response.json();
+		console.log(data);
+	};
+
 	return (
 		<div className="container">
 			<h1>My Todos</h1>
